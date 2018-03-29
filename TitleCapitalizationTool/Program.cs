@@ -13,21 +13,24 @@ namespace TitleCapitalizationTool
 			char[] separator = { ' ' };
 			char[] punctuationEndMarks = { '!', '?', '.' };
 			string userString;
-
+			int index = 0;
 			do
 			{
 				if (args.Length == 0)
 				{
 					Console.Write("Enter some string: ");
 					Console.ForegroundColor = ConsoleColor.Red;
-					userString = Console.ReadLine(); 
+					userString = Console.ReadLine();
 				}
 				else
 				{
-					userString = String.Join(" ", args);
+					userString = args[index];
+					Console.Write("Incorrect string: ");
+					Console.ForegroundColor = ConsoleColor.Red;
+					Console.WriteLine(userString);
 				}
 
-				if(userString.Length > 0)
+				if (userString.Length > 0)
 				{
 					userString = userString.ToLower();
 
@@ -50,7 +53,7 @@ namespace TitleCapitalizationTool
 					{
 						for (int x = 0; x < punctuationMarks.Length; x++)
 						{
-							if (builder[i] == punctuationMarks[x] && builder[i - 1] == ' ')
+							if (i - 1 > 0 && builder[i] == punctuationMarks[x] && builder[i - 1] == ' ')
 							{
 								builder.Remove(i - 1, 1);
 								break;
@@ -94,11 +97,15 @@ namespace TitleCapitalizationTool
 							if (words[i].Equals(exception[j]))
 							{
 								words[i] = words[i].ToLower();
+								break;
 							}
 						}
 					}
 
-					words[0] = words[0].Substring(0, 1).ToUpper() + words[0].Substring(1, words[0].Length - 1); //If article is the first word in the sentence
+					if (words.Length > 1)
+					{
+						words[0] = words[0].Substring(0, 1).ToUpper() + words[0].Substring(1, words[0].Length - 1); //If article is the first word in the sentence
+					}
 					for (int i = 1; i < words.Length; i++)  //Upper first word in the sentence
 					{
 						for (int x = 0; x < punctuationEndMarks.Length; x++)
@@ -119,17 +126,18 @@ namespace TitleCapitalizationTool
 					Console.WriteLine(userString);
 					Console.WriteLine();
 					Console.ForegroundColor = ConsoleColor.Gray;
-					if (args.Length != 0)
+					if (index < args.Length)
 					{
-						break;
+						index++;
 					}
 				}
 				else
 				{
 					Console.WriteLine("You didn't enter string!");
+					Console.WriteLine();
 					Console.ForegroundColor = ConsoleColor.Gray;
 				}
-			} while (true);
+			} while (index < args.Length || args.Length == 0);
 		}
 	}
 }
