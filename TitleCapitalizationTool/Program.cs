@@ -35,7 +35,7 @@ namespace TitleCapitalizationTool
 					userString = userString.ToLower();
 
 					string[] words = userString.Split(separator, StringSplitOptions.RemoveEmptyEntries);
-					userString = String.Join(" ", words);
+					userString = string.Join(" ", words);
 
 					StringBuilder builder = new StringBuilder(userString);
 					for (int i = 0; i < builder.Length; i++) //Insert ' ' after punctuation marks
@@ -119,7 +119,7 @@ namespace TitleCapitalizationTool
 
 						}
 					}
-					userString = String.Join(" ", words);
+					userString = string.Join(" ", words);
 					Console.ForegroundColor = ConsoleColor.Gray;
 					Console.Write("Correct string: ");
 					Console.ForegroundColor = ConsoleColor.Green;
