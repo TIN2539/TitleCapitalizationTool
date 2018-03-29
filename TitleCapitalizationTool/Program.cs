@@ -4,7 +4,7 @@ using System.Text;
 
 namespace TitleCapitalizationTool
 {
-	class Program
+	internal class Program
 	{
 		internal static void Main(string[] args)
 		{
