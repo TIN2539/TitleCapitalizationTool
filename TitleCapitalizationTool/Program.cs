@@ -18,14 +18,14 @@ namespace TitleCapitalizationTool
 			{
 				if (args.Length == 0)
 				{
-					Console.Write("Enter some string: ");
+					Console.Write("Enter title to capitalize: ");
 					Console.ForegroundColor = ConsoleColor.Red;
 					userString = Console.ReadLine();
 				}
 				else
 				{
 					userString = args[index];
-					Console.Write("Incorrect string: ");
+					Console.Write("Original title: ");
 					Console.ForegroundColor = ConsoleColor.Red;
 					Console.WriteLine(userString);
 				}
@@ -121,7 +121,7 @@ namespace TitleCapitalizationTool
 					}
 					userString = string.Join(" ", words);
 					Console.ForegroundColor = ConsoleColor.Gray;
-					Console.Write("Correct string: ");
+					Console.Write("Capitalized title: ");
 					Console.ForegroundColor = ConsoleColor.Green;
 					Console.WriteLine(userString);
 					Console.WriteLine();
@@ -133,7 +133,7 @@ namespace TitleCapitalizationTool
 				}
 				else
 				{
-					Console.WriteLine("You didn't enter string!");
+					Console.WriteLine("You didn't enter title!");
 					Console.WriteLine();
 					Console.ForegroundColor = ConsoleColor.Gray;
 				}
