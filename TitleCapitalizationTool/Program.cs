@@ -21,6 +21,7 @@ namespace TitleCapitalizationTool
 					Console.Write("Enter title to capitalize: ");
 					Console.ForegroundColor = ConsoleColor.Red;
 					userString = Console.ReadLine();
+					Console.ForegroundColor = ConsoleColor.Gray;
 				}
 				else
 				{
@@ -28,6 +29,7 @@ namespace TitleCapitalizationTool
 					Console.Write("Original title: ");
 					Console.ForegroundColor = ConsoleColor.Red;
 					Console.WriteLine(userString);
+					Console.ForegroundColor = ConsoleColor.Gray;
 				}
 
 				if (userString.Length > 0)
@@ -106,13 +108,13 @@ namespace TitleCapitalizationTool
 					{
 						words[0] = words[0].Substring(0, 1).ToUpper() + words[0].Substring(1, words[0].Length - 1); //If article is the first word in the sentence
 					}
-					for (int i = 1; i < words.Length; i++)  //Upper first word in the sentence
+					for (int i = 1; i < words.Length; i++)  //Upper first and last words in the sentence
 					{
 						for (int x = 0; x < punctuationEndMarks.Length; x++)
 						{
 							if (i + 1 < words.Length && words[i].Last() == punctuationEndMarks[x])
 							{
-
+								words[i] = words[i].Substring(0, 1).ToUpper() + words[i].Substring(1, words[i].Length - 1);
 								words[i + 1] = words[i + 1].Substring(0, 1).ToUpper() + words[i + 1].Substring(1, words[i + 1].Length - 1);
 								break;
 							}
@@ -120,7 +122,6 @@ namespace TitleCapitalizationTool
 						}
 					}
 					userString = string.Join(" ", words);
-					Console.ForegroundColor = ConsoleColor.Gray;
 					Console.Write("Capitalized title: ");
 					Console.ForegroundColor = ConsoleColor.Green;
 					Console.WriteLine(userString);
@@ -133,9 +134,7 @@ namespace TitleCapitalizationTool
 				}
 				else
 				{
-					Console.WriteLine("You didn't enter title!");
-					Console.WriteLine();
-					Console.ForegroundColor = ConsoleColor.Gray;
+					Console.SetCursorPosition(0, Console.CursorTop - 1);
 				}
 			} while (index < args.Length || args.Length == 0);
 		}
