@@ -8,10 +8,10 @@ namespace TitleCapitalizationTool
 	{
 		internal static void Main(string[] args)
 		{
-			char[] punctuationMarks = { ',', ':', ';', '!', '?', '.' };
-			string[] exceptions = { "A", "An", "The", "And", "But", "For", "Nor", "So", "Yet", "At", "By", "In", "Of", "On", "Or", "Out", "To", "Up" };
-			char[] separator = { ' ' };
+			string[] exceptions = {"A", "An", "And", "At", "But", "By", "For", "In", "Nor", "Of", "On", "Or", "Out", "So", "The", "To", "Up", "Yet"};
 			char[] punctuationEndMarks = { '!', '?', '.' };
+			char[] punctuationMarks = { ',', ':', ';', '!', '?', '.' };
+			char[] separator = { ' ' };
 			string userString;
 			int index = 0;
 			do
