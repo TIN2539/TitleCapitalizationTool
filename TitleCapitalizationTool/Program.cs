@@ -40,7 +40,8 @@ namespace TitleCapitalizationTool
 					userString = string.Join(" ", words);
 
 					StringBuilder builder = new StringBuilder(userString);
-					for (int i = 0; i < builder.Length; i++) //Insert ' ' after punctuation marks
+					// Insert ' ' after punctuation marks
+					for (int i = 0; i < builder.Length; i++) 
 					{
 						for (int x = 0; x < punctuationMarks.Length; x++)
 						{
@@ -51,7 +52,8 @@ namespace TitleCapitalizationTool
 							}
 						}
 					}
-					for (int i = 0; i < builder.Length; i++) //Remove ' ' before punctuation marks
+					// Remove ' ' before punctuation marks
+					for (int i = 0; i < builder.Length; i++)
 					{
 						for (int x = 0; x < punctuationMarks.Length; x++)
 						{
@@ -62,8 +64,8 @@ namespace TitleCapitalizationTool
 							}
 						}
 					}
-
-					for (int i = 0; i < builder.Length; i++) //Insert ' ' before and after '-'
+					// Insert ' ' before and after '-'
+					for (int i = 0; i < builder.Length; i++)
 					{
 						if (builder[i] == '-')
 						{
@@ -80,7 +82,8 @@ namespace TitleCapitalizationTool
 
 					userString = builder.ToString();
 					words = userString.Split(separator, StringSplitOptions.RemoveEmptyEntries);
-					for (int i = 0; i < words.Length; i++)  //Upper first letter
+					// Upper first letter
+					for (int i = 0; i < words.Length; i++) 
 					{
 						if (words[i].Length > 1)
 						{
@@ -91,8 +94,8 @@ namespace TitleCapitalizationTool
 							words[i] = words[i].ToUpper();
 						}
 					}
-
-					for (int i = 0; i < words.Length; i++)  //Include exeption (article e.t.)
+					// Include exeption (article e.t.)
+					for (int i = 0; i < words.Length; i++)  
 					{
 						for (int j = 0; j < exceptions.Length; j++)
 						{
@@ -103,12 +106,13 @@ namespace TitleCapitalizationTool
 							}
 						}
 					}
-
+					// If article is the first word in the sentence
 					if (words.Length > 1)
 					{
-						words[0] = words[0].Substring(0, 1).ToUpper() + words[0].Substring(1, words[0].Length - 1); //If article is the first word in the sentence
+						words[0] = words[0].Substring(0, 1).ToUpper() + words[0].Substring(1, words[0].Length - 1);
 					}
-					for (int i = 1; i < words.Length; i++)  //Upper first and last words in the sentence
+					// Upper first and last words in the sentence
+					for (int i = 1; i < words.Length; i++)  
 					{
 						for (int x = 0; x < punctuationEndMarks.Length; x++)
 						{
