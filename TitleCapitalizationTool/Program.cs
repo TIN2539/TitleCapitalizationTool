@@ -6,7 +6,7 @@ namespace TitleCapitalizationTool
 {
 	internal class Program
 	{
-		internal static void Main(string[] args)
+		internal static void Main(string[] stringsFromConsole)
 		{
 			string[] exceptions = {"A", "An", "And", "At", "But", "By", "For", "In", "Nor", "Of", "On", "Or", "Out", "So", "The", "To", "Up", "Yet"};
 			char[] punctuationEndMarks = { '!', '?', '.' };
@@ -16,7 +16,7 @@ namespace TitleCapitalizationTool
 			int index = 0;
 			do
 			{
-				if (args.Length == 0)
+				if (stringsFromConsole.Length == 0)
 				{
 					Console.Write("Enter title to capitalize: ");
 					Console.ForegroundColor = ConsoleColor.Red;
@@ -25,7 +25,7 @@ namespace TitleCapitalizationTool
 				}
 				else
 				{
-					userString = args[index];
+					userString = stringsFromConsole[index];
 					Console.Write("Original title: ");
 					Console.ForegroundColor = ConsoleColor.Red;
 					Console.WriteLine(userString);
@@ -127,7 +127,7 @@ namespace TitleCapitalizationTool
 					Console.WriteLine(userString);
 					Console.WriteLine();
 					Console.ForegroundColor = ConsoleColor.Gray;
-					if (index < args.Length)
+					if (index < stringsFromConsole.Length)
 					{
 						index++;
 					}
@@ -136,7 +136,7 @@ namespace TitleCapitalizationTool
 				{
 					Console.SetCursorPosition(0, Console.CursorTop - 1);
 				}
-			} while (index < args.Length || args.Length == 0);
+			} while (index < stringsFromConsole.Length || stringsFromConsole.Length == 0);
 		}
 	}
 }
