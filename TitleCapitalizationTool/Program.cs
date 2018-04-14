@@ -9,7 +9,7 @@ namespace TitleCapitalizationTool
 		internal static void Main(string[] args)
 		{
 			char[] punctuationMarks = { ',', ':', ';', '!', '?', '.' };
-			string[] exception = { "A", "An", "The", "And", "But", "For", "Nor", "So", "Yet", "At", "By", "In", "Of", "On", "Or", "Out", "To", "Up" };
+			string[] exceptions = { "A", "An", "The", "And", "But", "For", "Nor", "So", "Yet", "At", "By", "In", "Of", "On", "Or", "Out", "To", "Up" };
 			char[] separator = { ' ' };
 			char[] punctuationEndMarks = { '!', '?', '.' };
 			string userString;
@@ -94,9 +94,9 @@ namespace TitleCapitalizationTool
 
 					for (int i = 0; i < words.Length; i++)  //Include exeption (article e.t.)
 					{
-						for (int j = 0; j < exception.Length; j++)
+						for (int j = 0; j < exceptions.Length; j++)
 						{
-							if (words[i].Equals(exception[j]))
+							if (words[i].Equals(exceptions[j]))
 							{
 								words[i] = words[i].ToLower();
 								break;
